@@ -43,5 +43,18 @@ export default Ember.Route.extend({
     },
     redirect(model, transition) {
         console.log('redirect...');
+    },
+
+    actions: {
+        willTransition(transition) {
+            /**
+             * transition.abort()
+             * Any hook that has access to this transition object has the ability to immediately abort the transition by calling transition.abort(),
+             * transition.retry()
+             * and if the transition object is stored, it can be re-attempted at a later time by calling transition.retry().
+             */
+            console.log('willTransition...');
+            console.log(transition);
+        }
     }
 });
