@@ -4,11 +4,11 @@ import RSVP from 'rsvp';
 export default Ember.Route.extend({
     beforeModel(transition) {
         // beforeModel() receives the current transition as an argument
-        console.log('before model...');
-        console.log(transition);
+        Ember.Logger.log('before model...');
+        Ember.Logger.log(transition);
     },
     model() {
-        console.log('model...')
+        Ember.Logger.log('model...');
         let test1 = [{
             title: 'first title',
             body: 'first body'
@@ -37,12 +37,12 @@ export default Ember.Route.extend({
     },
     afterModel(model, transition) {
         //It receives the resolved model as the first parameter and the transition as the second one.
-        console.log('after model...');
-        console.log(model);
-        console.log(transition);
+        Ember.Logger.log('after model...');
+        Ember.Logger.log(model);
+        Ember.Logger.log(transition);
     },
     redirect(model, transition) {
-        console.log('redirect...');
+        Ember.Logger.log('redirect...');
     },
 
     actions: {
@@ -53,8 +53,8 @@ export default Ember.Route.extend({
              * transition.retry()
              * and if the transition object is stored, it can be re-attempted at a later time by calling transition.retry().
              */
-            console.log('willTransition...');
-            console.log(transition);
+            Ember.Logger.log('willTransition...');
+            Ember.Logger.log(transition);
         }
     }
 });

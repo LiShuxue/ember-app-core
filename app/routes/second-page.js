@@ -25,15 +25,15 @@ export default Ember.Route.extend({
     },
     actions: {
         loading(transition, originRoute) {
-            console.log('route loading ...');
-            console.log(transition);
-            console.log(originRoute);
+            Ember.Logger.log('route loading ...');
+            Ember.Logger.log(transition);
+            Ember.Logger.log(originRoute);
             return true; // 冒泡操作；allows the loading template to be shown
         },
         error(error, transition) {
-            console.log('route error ...');
-            console.log(error);
-            console.log(transition);
+            Ember.Logger.log('route error ...');
+            Ember.Logger.log(error);
+            Ember.Logger.log(transition);
             return true; // 冒泡操作；allows the error template to be shown
         }
     }
