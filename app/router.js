@@ -7,6 +7,8 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('application-loading');
+  this.route('application-error');
   this.route('first-page');
   this.route('second-page');
 });
