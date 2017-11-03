@@ -1,0 +1,11 @@
+<p>this is first page's hbs</p>
+<hr />
+{{#each model.test1 as |test1|}}
+    <p>{{test1.title}}</p>
+    <p>{{test1.body}}</p>
+{{/each}}
+<hr />
+{{#each model.test2 as |test2|}}
+    <p>{{test2.title}}</p>
+    <p>{{test2.body}}</p>
+{{/each}}
