@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('application-error');
   this.route('first-page');
   this.route('second-page');
+  this.route('third-page');
 });
 
 export default Router;
