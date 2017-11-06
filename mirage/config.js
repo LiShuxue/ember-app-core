@@ -20,7 +20,7 @@ export default function () {
         id: 1,
         attributes: {
             "first-name": 'Li',
-            "last-name": 'Shuxue',
+            "last-name": 'Shuxue-mirage',
             email: '123@qq.com',
             "is-test": true
         }
@@ -29,7 +29,7 @@ export default function () {
         id: 2,
         attributes: {
             "first-name": 'Li',
-            "last-name": 'Shuxue2',
+            "last-name": 'Shuxue2-mirage',
             email: '123@qq.com',
             "is-test": true
         }
