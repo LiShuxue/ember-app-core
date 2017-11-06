@@ -10,4 +10,9 @@
     <p>{{test2.body}}</p>
 {{/each}}
 <hr />
+{{button-with-confirmation
+    onConfirm=(action "testConfirmActionFirstpage") 
+    onCancle=(action "testCancleActionFirstpage") 
+}}
+<hr />
 {{#link-to 'second-page'}}test-link-to{{/link-to}}
