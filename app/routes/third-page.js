@@ -42,6 +42,33 @@ export default Ember.Route.extend({
             }).then(function(peters) {
 
             });
+        },
+        testCreateRecord() {
+            //在本地store中创建记录
+            let user = this.get('store').createRecord('user', {
+                id: 3,
+                firstName: 'Li',
+                lastName: 'Shuxue3-mirage',
+                email: 'baidu@qq.com',
+                isTest: false
+            });
+            //持久化记录，会发送post请求
+            user.save();
+        },
+        testUpdateRecord() {
+            this.get('store').findRecord('user', 1).then(function(tyrion) {
+                tyrion.set('firstName', "Yollo");
+            });
+        },
+        testDeleteRecord() {
+            this.get('store').findRecord('user', 2).then(function(user) {
+                user.deleteRecord();
+                Ember.Logger.log('isDelete : ' + user.get('isDeleted')); // => true
+                user.save();     //持久化，发送请求
+
+                //上面的操作可以用下面一行实现
+                //ser.destroyRecord();
+            });
         }
     }
 });

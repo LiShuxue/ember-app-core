@@ -44,9 +44,9 @@ export default function () {
                 data: filteredRentals
             };
         }else {
-        return {
-            data: users
-        };
+            return {
+                data: users
+            };
         }
     });
     this.get('/users/:id', function (db, request) {
@@ -54,6 +54,25 @@ export default function () {
             data: users.find(
                 (user) => request.params.id == user.id
             ) 
+        };
+    });
+    this.post('/users', function (db, request) {
+        if(request.requestBody !== undefined) {
+            users.push(JSON.parse(request.requestBody).data);
+        }
+        return {
+            data: users
+        };
+    });
+    this.del('/users/:id', function (db, request) {
+        users.find( (value, index, arr) => {
+            if(request.params.id == value.id){
+                Ember.Logger.log(`user ${value.id} be deleted`);
+                users.splice(index,1);
+            }
+        });
+        return {
+            data: users
         };
     });
 }
