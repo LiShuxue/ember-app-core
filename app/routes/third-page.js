@@ -20,6 +20,28 @@ export default Ember.Route.extend({
             //         foo: 'bar'
             //     }
             // });
+        },
+        testFindRecord() {
+            const store = this.get('store');
+
+            let findrecord = store.findRecord('user', 1).then( response => {   //先去store中找，如果没有再发请求拿
+                Ember.Logger.log('findrecord success:');
+                Ember.Logger.log(response);
+            }).catch( error => {
+                Ember.Logger.log('findrecord failed:');
+                Ember.Logger.log(error);
+            });
+
+            let peekrecord = store.peekRecord('user', 1); // 只返回store中的数据
+            let findall = store.findAll('user');
+            let peekall = store.peekAll('user');      //findall和peekall最终返回的数据都是DS.RecordArray，需要用objectAt(index)来获取某一个。不能用arr[i]
+        },
+        testQueryRecord() {
+            this.get('store').query('user', {
+                "email": 'baidu@qq.com'
+            }).then(function(peters) {
+
+            });
         }
     }
 });

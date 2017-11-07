@@ -21,7 +21,7 @@ export default function () {
         attributes: {
             "first-name": 'Li',
             "last-name": 'Shuxue-mirage',
-            email: '123@qq.com',
+            email: 'google@qq.com',
             "is-test": true
         }
     }, {
@@ -30,14 +30,30 @@ export default function () {
         attributes: {
             "first-name": 'Li',
             "last-name": 'Shuxue2-mirage',
-            email: '123@qq.com',
+            email: 'baidu@qq.com',
             "is-test": true
         }
     }];
 
-    this.get('/users', function () {
+    this.get('/users', function (db, request) {
+        if(request.queryParams.email !== undefined) {
+            let filteredRentals = users.filter(
+                (user) => user.attributes.email.toLowerCase().indexOf(request.queryParams.email.toLowerCase()) !== -1
+            );
+            return {
+                data: filteredRentals
+            };
+        }else {
         return {
             data: users
+        };
+        }
+    });
+    this.get('/users/:id', function (db, request) {
+        return { 
+            data: users.find(
+                (user) => request.params.id == user.id
+            ) 
         };
     });
 }
