@@ -2,6 +2,10 @@ import Ember from 'ember';
 import RSVP from 'rsvp';
 
 export default Ember.Route.extend({
+    testService: Ember.inject.service(),
+    //或者用下面这种方法注入
+    test: Ember.inject.service('test-service'),
+
     beforeModel(transition) {
         // beforeModel() receives the current transition as an argument
         Ember.Logger.log('before model...');
@@ -55,6 +59,10 @@ export default Ember.Route.extend({
              */
             Ember.Logger.log('willTransition...');
             Ember.Logger.log(transition);
+        },
+        testService() {
+            this.get('testService').log('this is test service');
+            this.get('test').log('this is test');
         }
     }
 });
