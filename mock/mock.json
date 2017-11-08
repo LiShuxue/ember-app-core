@@ -1,36 +1,26 @@
 {
-    "tests": {
-        "data": [{
-            "type": "tests",
-            "id": "emebr model mock数据规范",
-            "attributes": {
-                "1": "第一个key是你的对象model，第二个key必须是data。data中是type，id，attributes",
-                "2": "attributes中才是ember的model的属性值",
-                "3": "注意对象中一定要声明 type: 'users', 否则就报错",
-                "4": "驼峰法命名的属性，这里要用横线 '-' 隔开。除id外所有的属性都写在attributes中"
-            }
-        }]
+  "users": [
+    {
+      "id": "1",
+      "firstName": "Li",
+      "lastName": "Shuxue-json-server",
+      "email": "123@qq.com",
+      "isTest": true
     },
-
-    "users": {
-        "data": [{
-            "type": "users",
-            "id": 1,
-            "attributes": {
-                "first-name": "Li",
-                "last-name": "Shuxue-json-server",
-                "email": "123@qq.com",
-                "is-test": true
-            }
-        }, {
-            "type": "users",
-            "id": 2,
-            "attributes": {
-                "first-name": "Li",
-                "last-name": "Shuxue2-json-server",
-                "email": "123@qq.com",
-                "is-test": true
-            }
-        }]
+    {
+      "id": "2",
+      "firstName": "Li",
+      "lastName": "Shuxue2-json-server",
+      "email": "123@qq.com",
+      "isTest": true
+    },
+    {
+      "id": "3",
+      "firstName": "Li",
+      "lastName": "Shuxue3-mirage",
+      "email": "baidu@qq.com",
+      "isTest": false,
+      "birthday": "2017-11-07T08:59:46.146Z"
     }
+  ]
 }

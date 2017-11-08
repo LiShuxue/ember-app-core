@@ -53,7 +53,7 @@ export default Ember.Route.extend({
                 isTest: false
             });
             //持久化记录，会发送post请求
-            user.save();
+            //user.save();
         },
         testUpdateRecord() {
             this.get('store').findRecord('user', 1).then(function(tyrion) {
@@ -64,10 +64,10 @@ export default Ember.Route.extend({
             this.get('store').findRecord('user', 2).then(function(user) {
                 user.deleteRecord();
                 Ember.Logger.log('isDelete : ' + user.get('isDeleted')); // => true
-                user.save();     //持久化，发送请求
+                //user.save();     //持久化，发送请求
 
                 //上面的操作可以用下面一行实现
-                //ser.destroyRecord();
+                //user.destroyRecord();
             });
         },
         testPush() {
@@ -75,21 +75,15 @@ export default Ember.Route.extend({
                 data: [{
                     id: 1,
                     type: 'album',
-                    attributes: {
-                        title: 'Fewer Moving Parts',
-                        artist: 'David Bazan',
-                        songCount: 10
-                    },
-                    relationships: {}
+                    title: 'Fewer Moving Parts',
+                    artist: 'David Bazan',
+                    songCount: 10,
                 }, {
                     id: 2,
                     type: 'album',
-                    attributes: {
-                        title: 'Calgary b/w I Can\'t Make You Love Me/Nick Of Time',
-                        artist: 'Bon Iver',
-                        songCount: 2
-                    },
-                    relationships: {}
+                    title: 'Calgary b/w I Can\'t Make You Love Me/Nick Of Time',
+                    artist: 'Bon Iver',
+                    songCount: 2
                 }]
             });
         }

@@ -1,3 +1,5 @@
 {
-    "/api/users": "/users"
+    "/api/users": "/users",
+    "/api/users/:id": "/users/:id",
+    "/api/users\\?email=:email": "/users?email=:email"
 }
